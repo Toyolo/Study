@@ -91,7 +91,6 @@ print(f'Number of testing samples: {len(X_test)}')
 print(f'Number of testing samples: {len(y_preds)}')
 print(f'Predicted values:\n {y_preds}')
 
-# plot_predictions(predictions=y_preds)
 
 print(y_test - y_preds)
 
@@ -139,14 +138,14 @@ for epoch in range(epochs):
     model_0.eval()
 
     with torch.inference_mode():
-      # 1. Forward pass on test data
-      test_pred = model_0(X_test)
+        # 1. Forward pass on test data
+        test_pred = model_0(X_test)
 
-      # 2. Caculate loss on test data
-      test_loss = loss_fn(test_pred, y_test.type(torch.float)) # predictions come in torch.float datatype, so comparisons need to be done with tensors of the same type
+        # 2. Caculate loss on test data
+        test_loss = loss_fn(test_pred, y_test.type(torch.float)) # predictions come in torch.float datatype, so comparisons need to be done with tensors of the same type
 
-      # Print out what's happening
-      if epoch % 10 == 0:
+        # Print out what's happening
+        if epoch % 10 == 0:
             epoch_count.append(epoch)
             train_loss_values.append(loss.detach().numpy())
             test_loss_values.append(test_loss.detach().numpy())
