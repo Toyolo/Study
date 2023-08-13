@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from pathlib import Path
 
 #1 data and data processing
 weight, bias = 0.3, 0.9
@@ -65,8 +66,12 @@ print("\nAnd the original values for weights and bias are:")
 print(f"weights: {weight}, bias: {bias}")
 
 #6 save model
+MODEL_PATH = Path("models")
+MODEL_PATH.mkdir(parents=True, exist_ok=True)
 
-
-
+MODEL_NAME = "pytorch_linear_model_3.pth"
+MODEL_SAVE_PATH = MODEL_PATH / MODEL_NAME
+print(f"Saving model state dict at: {MODEL_SAVE_PATH}")
+torch.save(model.state_dict(), MODEL_SAVE_PATH) 
 #7 load model
 
