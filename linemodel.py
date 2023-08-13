@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from sklearn.datasets import make_circles
 # import matplotlib.pyplot as plt
 
 what_im_building = {1: "data (prep and load)",
@@ -164,3 +165,11 @@ print("The model learned the following values for weights and bias:")
 print(model_0.state_dict())
 print("\nAnd the original values for weights and bias are:")
 print(f"weights: {weight}, bias: {bias}")
+
+# Make 1000 samples 
+n_samples = 1000
+
+# Create circles
+X, y = make_circles(n_samples,
+                    noise=0.03, # a little bit of noise to the dots
+                    random_state=42) # keep random state so we get the same values
