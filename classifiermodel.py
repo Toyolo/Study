@@ -37,11 +37,6 @@ def accuracy_fn(y_true, y_pred):
 y_logits = model(X_test.to(device))
 y_pred_probs = torch.sigmoid(y_logits)
 
-y_preds = torch.round(y_pred_probs)
-y_pred_labels = torch.round(torch.sigmoid(model(X_test.to(device))))
-y_preds.squeeze()
-
-
 torch.manual_seed(42)
 
 epochs = 100
